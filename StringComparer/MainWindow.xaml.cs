@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MainWindow.xaml.cs" company="The Watson Laboratory">
+//   Copyright © 2019 The Watson Laboratory
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace StringComparer
 {
+    using System.Windows;
+    using System.Windows.Controls;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -22,7 +16,21 @@ namespace StringComparer
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+        }
+
+        private void TextBox1_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= this.TextBox1_GotFocus;
+        }
+
+        private void TextBox2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= this.TextBox2_GotFocus;
         }
     }
 }

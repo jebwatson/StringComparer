@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StringComparer"
         mc:Ignorable="d"
+        DataContext="MainWindowViewModel"
         Title="MainWindow" Height="450" Width="800">
   <StackPanel VerticalAlignment="Center">
     <Grid HorizontalAlignment="Center">
@@ -16,10 +17,10 @@
         <RowDefinition />
         <RowDefinition />
       </Grid.RowDefinitions>
-      <Label Grid.Column="0" Grid.Row="0" Content="Placeholder" />
-      <Label Grid.Column="0" Grid.Row="1" Content="Placeholder" />
-      <TextBox Grid.Column="1" Grid.Row="0" Text="Your string here..." />
-      <TextBox Grid.Column="1" Grid.Row="1" Text="Your string here..." />
+      <TextBlock Grid.Column="0" Grid.Row="0" Text="String 1:" />
+      <TextBlock Grid.Column="0" Grid.Row="1" Text="String 2:" />
+      <TextBox Grid.Column="1" Grid.Row="0" Margin="10 0 0 0" MinWidth="100" Text="Your string here..." GotFocus="TextBox1_GotFocus"/>
+      <TextBox Grid.Column="1" Grid.Row="1" Margin="10 0 0 0" MinWidth="100" Text="Your string here..." GotFocus="TextBox2_GotFocus" />
     </Grid>
   </StackPanel>
 </Window>
