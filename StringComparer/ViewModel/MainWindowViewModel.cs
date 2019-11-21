@@ -6,14 +6,42 @@
 
 namespace StringComparer.ViewModel
 {
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
     using System.Windows.Input;
+    using StringComparer.Annotations;
 
-    public class MainWindowViewModel
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public string Tb1 { get; }
-        public string Tb2 { get; }
+        private string tb1 = "Your string here...";
+        private string tb2 = "Your string here...";
 
-        public ICommand OnTb1MouseUpCommand { get; }
-        public ICommand OnTb2MouseUpCommand { get; }
+        public string Tb1
+        {
+            get => this.tb1;
+            set
+            {
+                this.tb1 = value;
+                this.OnPropertyChanged(nameof(this.Tb1));
+            }
+        }
+
+        public string Tb2
+        {
+            get => this.tb2;
+            set
+            {
+                this.tb2 = value;
+                this.OnPropertyChanged(nameof(this.Tb2));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

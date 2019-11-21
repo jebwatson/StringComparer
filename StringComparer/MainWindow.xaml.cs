@@ -8,6 +8,7 @@ namespace StringComparer
 {
     using System.Windows;
     using System.Windows.Controls;
+    using StringComparer.ViewModel;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -16,8 +17,12 @@ namespace StringComparer
     {
         public MainWindow()
         {
+            this.MainWindowViewModel = new MainWindowViewModel();
+            this.DataContext = this.MainWindowViewModel;
             this.InitializeComponent();
         }
+
+        public MainWindowViewModel MainWindowViewModel { get; }
 
         private void TextBox1_GotFocus(object sender, RoutedEventArgs e)
         {

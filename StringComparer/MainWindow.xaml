@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StringComparer"
         mc:Ignorable="d"
-        DataContext="MainWindowViewModel"
         Title="MainWindow" Height="450" Width="800">
   <StackPanel VerticalAlignment="Center">
     <Grid HorizontalAlignment="Center">
@@ -17,10 +16,10 @@
         <RowDefinition />
         <RowDefinition />
       </Grid.RowDefinitions>
-      <TextBlock Grid.Column="0" Grid.Row="0" Text="String 1:" />
-      <TextBlock Grid.Column="0" Grid.Row="1" Text="String 2:" />
-      <TextBox Grid.Column="1" Grid.Row="0" Margin="10 0 0 0" MinWidth="100" Text="Your string here..." GotFocus="TextBox1_GotFocus"/>
-      <TextBox Grid.Column="1" Grid.Row="1" Margin="10 0 0 0" MinWidth="100" Text="Your string here..." GotFocus="TextBox2_GotFocus" />
+      <TextBlock Grid.Column="0" Grid.Row="0" Text="String 1:" FontSize="20" />
+      <TextBlock Grid.Column="0" Grid.Row="1" Text="String 2:" FontSize="20" />
+      <TextBox Grid.Column="1" Grid.Row="0" Margin="10 0 0 10" MinWidth="400" FontSize="20" Text="{Binding Tb1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox1_GotFocus"/>
+      <TextBox Grid.Column="1" Grid.Row="1" Margin="10 0 0 10" MinWidth="400" FontSize="20" Text="{Binding Tb2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox2_GotFocus" />
     </Grid>
   </StackPanel>
 </Window>
