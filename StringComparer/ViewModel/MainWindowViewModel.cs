@@ -58,7 +58,6 @@ namespace StringComparer.ViewModel
                     {
                         if (tb1Array[index] != tb2Array[index])
                         {
-                            result = index.ToString();
                             differenceFound = true;
                         }
 
@@ -67,7 +66,7 @@ namespace StringComparer.ViewModel
 
                     if (!differenceFound)
                     {
-                        result = index.ToString();
+                        differenceFound = true;
                     }
                 }
                 else
@@ -76,7 +75,6 @@ namespace StringComparer.ViewModel
                     {
                         if (tb1Array[index] != tb2Array[index])
                         {
-                            result = index.ToString();
                             differenceFound = true;
                         }
 
@@ -84,17 +82,19 @@ namespace StringComparer.ViewModel
                     }
                 }
 
-                //if (differenceFound)
-                //{
-                //    index--;
-                //    var tb1Prepadding = this.tb1.Substring(index - 11, 10);
-                //    var tb1Postpadding = this.tb1.Substring(index + 1, 10);
-                //    var tb2Prepadding = this.tb2.Substring(index - 11, 10);
-                //    var tb2Postpadding = this.tb2.Substring(index + 1, 10);
-                //    var tb1Result = string.Concat(tb1Prepadding, this.tb1.Substring(index, 1), tb1Postpadding);
-                //    var tb2Result = string.Concat(tb2Prepadding, this.tb2.Substring(index, 1), tb2Postpadding);
-                //    result = string.Concat(tb1Result, "\n", tb2Result);
-                //}
+                if (differenceFound)
+                {
+                    index--;
+                    //var tb1Prepadding = this.tb1.Substring(index - 11, 10);
+                    //var tb1Postpadding = this.tb1.Substring(index + 1, 10);
+                    //var tb2Prepadding = this.tb2.Substring(index - 11, 10);
+                    //var tb2Postpadding = this.tb2.Substring(index + 1, 10);
+                    //var tb1Result = string.Concat(tb1Prepadding, this.tb1.Substring(index, 1), tb1Postpadding);
+                    //var tb2Result = string.Concat(tb2Prepadding, this.tb2.Substring(index, 1), tb2Postpadding);
+                    var tb1Result = string.Concat("String 1: ", this.tb1);
+                    var tb2Result = string.Concat("String 2: ", this.tb2);
+                    result = string.Concat("Difference found at index ", index.ToString(), "\n", tb1Result, "\n", tb2Result);
+                }
 
                 return result;
             }
